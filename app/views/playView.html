@@ -1,0 +1,35 @@
+<div class="inner-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5" style="float: none; margin: 0 auto;">
+				<div class="form-box">
+					<div class="form-top">
+						<div class="form-top-left">
+							<h1>Play</h1>
+						    <p>Select game then team...</p>
+						    <br/>
+							<h3 ng-show="selectedGame.idCardGame">{{selectedGame.cardGameName}}</h3>
+							<div ng-hide="selectedGame.idCardGame">
+								<label for="gameSelect">Select game:</label>
+								
+								<select id="gameSelect" ng-options="game as game.cardGameName for game in cardGames" ng-model="game" ng-change="selectedGame(game)">
+									<option value="">-- choose a game --</option>
+								</select>
+
+							    {{teamSelectDisabled}}
+						    </div>
+						    <div ng-hide="selectedGroup.idGroup">
+							    <label for="teamSelect">Select team:</label>
+
+								<select id="teamSelect" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
+									<option value="">-- choose a team --</option>
+								</select>
+						    </div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+ </div>
+

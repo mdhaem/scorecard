@@ -1,0 +1,50 @@
+<div class="inner-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5" style="float: none; margin: 0 auto;">
+				<div class="form-box">
+					<div class="form-top">
+						<div class="form-top-left">
+						    <div>
+						    	
+						    	<h1>{{gameName}}</h1>
+								<table>
+									<tr>
+										<td>History</td>
+										<td ng-repeat="player in players"></td>
+									</tr>
+									<tr>
+										<td>Score</td>
+										<td ng-repeat="player in players">{{total[$index]}}</td>
+									</tr>
+									<tr>
+										<td>Hand</td>
+										<td ng-repeat="player in players">{{player}}</td>
+									</tr>
+									<tr ng-repeat="row in rows track by $index">
+										<td>{{row+1}}</td>
+										<td id="{{row}}{{player}}" 
+											ng-repeat="player in players track by $index">
+
+											<input type="number"  
+												ng-model="score" 
+												ng-blur="onBlur($index, $parent.$index, $event)" 
+												ng-model-options="{ updateOn: 'blur' }" 
+												min="0" 
+												max="400"  
+												required />
+										</td>
+									</tr>
+								</table>
+								<hr/>
+								<input type="button" value="Add Row" class="btn btn-primary btn-sm" ng-click="addRow()"/>
+								<input type="button" value="Delete Row" class="btn btn-primary btn-sm" ng-click="removeRow()"/>
+							</div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+ </div>
+

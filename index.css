@@ -1,0 +1,30 @@
+.rotate {
+
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+display: inline-block;
+/* Safari */
+/*-webkit-transform: rotate(45deg);*/
+
+/* Firefox */
+/*-moz-transform: rotate(-45deg);*/
+
+/* IE */
+/*-ms-transform: rotate(-45deg);*/
+
+/* Opera */
+/*-o-transform: rotate(-45deg);*/
+
+/* Internet Explorer */
+/*filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+
+}
+#gameSelect, #teamSelect {
+	width: 10em;
+}
+#teamSelect{
+	margin-left: .26em;
+}
