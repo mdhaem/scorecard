@@ -1,8 +1,8 @@
 (function(){
 
 	var PlayController = function($scope, $location, CardsFactory, CardsService) {
-	$scope.rows = calcArray(7);
-	$scope.players = [];
+	// $scope.rows = calcArray(7);
+	// $scope.players = [];
 	$scope.groupNames = [];
 	$scope.cardGames = [];
 	$scope.isDisabled = true;
@@ -24,22 +24,22 @@
   	}; 
 
 	//$scope.scores = calcScoresArray(7, 4);
-	$scope.total = [0,0,0,0];
+	//$scope.total = [0,0,0,0];
 	//$scope.score = 0
 	//$scope.scores = scores;
-	$scope.onBlur = function(child, parent, score) {
-		var row = parent;
-		var column = child;
+	// $scope.onBlur = function(child, parent, score) {
+	// 	var row = parent;
+	// 	var column = child;
 		
-        console.log('index:' + parent + child);
+ //        console.log('index:' + parent + child);
         
-        console.log('score: '+score.currentTarget.value);
-        this.total[child] += parseInt(score.currentTarget.value, 10) || 0;
-    };
+ //        console.log('score: '+score.currentTarget.value);
+ //        this.total[child] += parseInt(score.currentTarget.value, 10) || 0;
+ //    };
 
     function init() {
-    	var players = CardsFactory.getPlayers()
-    	$scope.players = getPlayerFirstNames(players);
+    	// var players = CardsFactory.getPlayers()
+    	// $scope.players = getPlayerFirstNames(players);
     	$scope.groupNames = CardsFactory.getGroupNames();
 		$scope.cardGames = CardsFactory.getCardGames();
     };
@@ -56,42 +56,42 @@
     // };
 };
 
-var getPlayerFirstNames = function(players){
-	var playersFirstNames = [];
-	var firstName = '';
-	var total = [];
-	for (var i = 0; i < players.length; i++) {
-		firstName = players[i].playerName.split(" ")[0];
-		playersFirstNames.push(players[i].playerName.split(" ")[0]);
+// var getPlayerFirstNames = function(players){
+// 	var playersFirstNames = [];
+// 	var firstName = '';
+// 	var total = [];
+// 	for (var i = 0; i < players.length; i++) {
+// 		firstName = players[i].playerName.split(" ")[0];
+// 		playersFirstNames.push(players[i].playerName.split(" ")[0]);
 		
-		console.log(firstName);
-	}
-	return playersFirstNames;
-};
+// 		console.log(firstName);
+// 	}
+// 	return playersFirstNames;
+// };
 
-var calcArray = function(value){
-	var list = [];
-	for (var i = 0; i < value; i++) {
-		list.push(i);
+// var calcArray = function(value){
+// 	var list = [];
+// 	for (var i = 0; i < value; i++) {
+// 		list.push(i);
 
-	}
+// 	}
 
-	return list;
-};
+// 	return list;
+// };
 
-var calcScoresArray = function(rows, players){
-	var scores = [];
-		for (var p = 0; p < players; p++) {
-			scores.push({"score":0});
-		}
+// var calcScoresArray = function(rows, players){
+// 	var scores = [];
+// 		for (var p = 0; p < players; p++) {
+// 			scores.push({"score":0});
+// 		}
 
-	return scores;
-};
+// 	return scores;
+// };
 
 
-var validateNumber = function(value){
-   return value % 5 == 0; 
-};
+// var validateNumber = function(value){
+//    return value % 5 == 0; 
+// };
 
 PlayController.$inject = ['$scope', '$location', 'CardsFactory', 'CardsService'];
 

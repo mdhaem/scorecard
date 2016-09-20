@@ -1,3 +1,3 @@
 (function(){
-	angular.module('Cards',['ngRoute','ngMessages']);
+	angular.module('Cards',['ngRoute']);
 }());
