@@ -25,7 +25,7 @@ angular.module('Cards')
 				controller: 'ScoreCardController',
 				templateUrl: 'app/views/scoreCardView.html'
 			})
-			.otherwise({ redirectTo: '/'});
+			.otherwise({ redirectTo: '/login'});
 	});
 
 }());

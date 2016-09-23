@@ -41,6 +41,14 @@ var CardsFactory = function($http){
 						{
 							idGroupName: "1",
 							groupName: "Bill Bev Mike Sandy"
+						},
+						{
+							idGroupName: "1",
+							groupName: "Bill Bev"
+						},
+						{
+							idGroupName: "1",
+							groupName: "Bill Bev Mike Sandy Curt"
 						}
 					];	
 	var history = [
