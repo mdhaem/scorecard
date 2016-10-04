@@ -4,6 +4,7 @@ var CardsService = function(){
 
 	var selectedGame = [];
 	var selectedGroup = [];
+	var userHash = {};
 
 	this.saveSelectedCardGame = function(game){
 	    selectedGame = game;
@@ -22,10 +23,18 @@ var CardsService = function(){
 	    return selectedGroup;
 	};
 
+	this.saveUser = function(hash){
+		if(hash.data.length) {
+	    	userHash = hash;
+	    }
+	};
+	this.getUser = function(){
+		return userHash.data[0].hash;
+	};
 	
 };
 
-CardsService.$inject = [];
+CardsService.$inject = ['$location'];
 
 angular.module('Cards')
 	.service('CardsService', CardsService)

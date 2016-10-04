@@ -24,7 +24,8 @@ describe('Testing ScoreCard', function(){
              expect(scope.cardGames.length).toBeGreaterThan(0);
              expect(scope.isDisabled).toBe(true);
 
-        })
+        });
+        
 
     });
 });

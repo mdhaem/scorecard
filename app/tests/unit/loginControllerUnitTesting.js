@@ -1,90 +1,72 @@
+// 'use strict'
 
+// describe('Testing LoginController', function(){
 
-// describe('Controller: LoginController', function() {
-//   var LoginCtrl, $httpBackend, $rootScope, $provide, $location, $cookies, scope;
-//   beforeEach(module('Cards'));
+//     beforeEach(module('Cards'));
 
-//   beforeEach(inject(function($injector) {
-//     $httpBackend=$injector.get('$httpBackend');
-//     $rootScope=$injector.get('$rootScope');
-//     $cookieStore=$injector.get('$cookies');
-//     $controller=$injector.get('$controller');
-//     $location=$injector.get('$location');
+//     //describe('Testing LoginController', function(){
+//         var scope, ctrl;
 
+//         beforeEach(inject(function($controller, $rootScope){
+//             scope = $rootScope.$new();
+//             ctrl = $controller('LoginController', {$scope:scope});
+//         }));
 
-//     LoginCtrl=function() {
-//       return $controller('LoginController', { 
-//         '$scope': $rootScope,
-//         '$cookie': $cookies,
-//         '$location': $location
-//       });
-//     };
-//   }));
+//         afterEach(function(){
+//             //cleanup code
+//         });
 
-//   //This is success
-//   it('should have a LoginCtrl controller', function() {
-//     expect('LoginController').toBeDefined();
-//   });
+//         it('email & pwd objects should exist', function(){
+//              // scope.email = "mikedhaem@gmail.com";
+             
+//              expect(scope.email).toBeDefined();
+//              expect(scope.pwd).toBeDefined();
 
-//   // You have to think about what you want to test here. There is no logic in your controller
-//   // that matches what you test here. To activate test just remove the x from xit.
-//   xit('should store username and password into cookies', function() {
-//     var $scope={};
-//     var loginCtrl=LoginCtrl();
-//     $rootScope.username='testUser';
-//     expect($cookies.get('username')).toBe('testUser');
-//   });
+//         })
+		
 
-//   // Failure
-//   it('should logs a user in and redirect', function() {
-//     var loginCtrl=LoginCtrl();
-    
-//     $httpBackend.whenPOST('/login').respond(200);
-//     $rootScope.username = 'testUser';
-//     $rootScope.password = 'password';
-//     $rootScope.login();
-    
-//     $httpBackend.flush();
-//     $rootScope.$digest();
-//     expect($location.path()).toBe('/'); // --> error: location is not defined
-//     expect($cookies.get('username')).toBe('testUser');
-//   });
+//     //});
 // });
- 
-'use strict'
+describe('LoginController', function() {
+        beforeEach(module('Cards'));
+        
+        var controller, scope;
 
-describe('Testing ScoreCard', function(){
-
-    beforeEach(module('Cards'));
-
-    describe('Testing ScoreCar loginController', function(){
-        var scope, ctrl;
-
-        inject(function($controller, $rootScope){
+        beforeEach(inject(function($controller, $rootScope, $httpBackend){
             scope = $rootScope.$new();
-            ctrl = $controller('LoginController', {$scope:scope});
-        });
+            //console.log('scope1', scope);
+            controller = $controller('LoginController', {$scope: scope});
+            httpBackend = $httpBackend;
+        }));
 
         afterEach(function(){
-            //cleanup code
+            httpBackend.verifyNoOutstandingExpectation();
+            httpBackend.verifyNoOutstandingRequest();
+        }); 
+
+        describe('login', function() {
+            it('sets variables email & pwd objects', function() {
+                expect(scope).toBeDefined();
+                expect(scope.loginData).toBeDefined();
+                expect(scope.loginData.email).toEqual('');
+                expect(scope.loginData.pwd).toEqual('');
+            });
+
+            it('Should get a hash value for successful login', function(){
+                scope.loginData.email = "mdhaem@gmail.com";
+                scope.loginData.pwd = "doscar";
+
+                httpBackend.when('GET',"http://iscorecards.com/service/CardGame.php?method=validateUser&email=mdhaem@gmail.com&pwd=doscar")
+                    .respond({"data":[{"hash": "68a05200c8a69b93994302c0f9ebe44d"}]});
+
+                scope.login();
+
+                httpBackend.flush();
+console.log(scope.response);
+                // expect(scope.loginData.email).toEqual('mdhaem@gmail.com');
+                // expect(scope.loginData.pwd).toEqual('doscar');
+                expect(scope.response.data[0].hash).toEqual("68a05200c8a69b93994302c0f9ebe44d");
+            });
+        
         });
-
-        it('userName & password objects should exist', function(){
-             
-             // beforeEach(module('Cards'));
-
-             // var scope = {};
-             // var ctrl;
-
-             // inject(function($controller){
-             //    ctrl = $controller('LoginController', {$scope:scope});
-             // });
-
-             // expect(scope.loginName).toBeDefined();
-             // expect(scope.password.length).toBeGreaterThan(0);
-             // expect(scope.password).toBeDefined();
-
-        })
-		
     });
-});
