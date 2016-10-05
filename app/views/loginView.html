@@ -6,7 +6,8 @@
 					<div class="form-top">
 						<div class="form-top-left">
 							<h3>Login</h3>
-							<p>Enter email and password to log on:</p>
+							<p>Login,<a ng-href="#/register" class="btn">Register</a>or<a ng-href="#/play" class="btn">Play</a></p>
+							<h4 class="text-danger" ng-show="alertDisplayed">{{message}}</h4>
 						</div>
 						<div class="form-top-right">
 							<i class="fa fa-key"></i>

@@ -24,12 +24,12 @@ var CardsService = function(){
 	};
 
 	this.saveUser = function(hash){
-		if(hash.data.length) {
+		//if(hash.data.length) {
 	    	userHash = hash;
-	    }
+	    //}
 	};
 	this.getUser = function(){
-		return userHash.data[0].hash;
+		return userHash; //.data[0].hash;
 	};
 	
 };
