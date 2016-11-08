@@ -1,6 +1,6 @@
 (function(){
 
-var CardsFactory = function($http){
+var CardsFactory = function($http, CardsService){
 	var factory = {};
 	var cardGames = [
 						{
@@ -70,14 +70,22 @@ var CardsFactory = function($http){
 					}
 				]
 
+	
 	factory.getHistory = function() {
-		return  history; http; //$http.get('iscorecards.com/service/CardGame.php?method=getHistory');
+		return  history; //$http.get('iscorecards.com/service/CardGame.php?method=getHistory');
 	};
 	factory.getPlayers = function() {
 		return  cardPlayers; //$http.get('http://iscorecards.com/service/CardGame.php?method=getPlayers&idCardGame=1&idGroupName=1');
 	};
 	factory.getCardGames = function() {
-		return  cardGames; //$http.get('http://iscorecards.com/service/CardGame.php?method=getCardGames');
+		//console.log('registeredUser: ' + CardsService.getUser());
+		var registeredUser = CardsService.getUser();
+		//console.log('registeredUser: ' + registeredUser);
+		if(registeredUser){
+			return  cardGames; //$http.get('http://iscorecards.com/service/CardGame.php?method=getCardGames');
+		}else{
+			return [];
+		}
 	};
 	factory.getCardGame = function(idCardGame) {
 		for(var i=0, len=cardGame.length; i < len; i++) {
@@ -94,7 +102,7 @@ var CardsFactory = function($http){
 	return factory;
 };
 
-CardsFactory.$inject = ['$http'];
+CardsFactory.$inject = ['$http', 'CardsService'];
 
 angular.module('Cards')
 	.factory('CardsFactory', CardsFactory)

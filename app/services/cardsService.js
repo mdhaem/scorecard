@@ -4,11 +4,10 @@ var CardsService = function(){
 
 	var selectedGame = [];
 	var selectedGroup = [];
-	var userHash = {};
+	var userHash = '';
 
 	this.saveSelectedCardGame = function(game){
 	    selectedGame = game;
-	    console.log(selectedGame);
 	};
 	this.getSelectedCardGame = function(){
 	    return selectedGame;
@@ -19,22 +18,17 @@ var CardsService = function(){
 	    console.log(selectedGroup);
 	};
 	this.getSelectedGroup = function(){
-		console.log('Called getSelectedGroup; '+selectedGroup.groupName);
 	    return selectedGroup;
 	};
 
 	this.saveUser = function(hash){
-		//if(hash.data.length) {
-	    	userHash = hash;
-	    //}
+	    userHash = hash;
 	};
 	this.getUser = function(){
-		return userHash; //.data[0].hash;
+		return userHash;
 	};
 	
 };
-
-CardsService.$inject = ['$location'];
 
 angular.module('Cards')
 	.service('CardsService', CardsService)

@@ -1,36 +1,29 @@
 (function(){
 
 	var PlayController = function($scope, $location, CardsFactory, CardsService) {
-	// $scope.rows = calcArray(7);
-	// $scope.players = [];
 	$scope.groupNames = [];
 	$scope.cardGames = [];
 	$scope.isDisabled = true;
 
 	$scope.selectedGame  = function(game) {
-    	
-    	console.log(game);
     	CardsService.saveSelectedCardGame(game);
     	$scope.isDisabled = false;
-
   	}; 
 
 	$scope.selectedGroup = function(group) {
-    	
-    	console.log(group);
     	CardsService.saveSelectedGroup(group);
     	$location.path('/card');
-
   	}; 
 
-    function init() {
-    	// var players = CardsFactory.getPlayers()
-    	// $scope.players = getPlayerFirstNames(players);
+    $scope.init = function init() {
     	$scope.groupNames = CardsFactory.getGroupNames();
 		$scope.cardGames = CardsFactory.getCardGames();
+        if($scope.cardGames.length === 0){
+            $location.path('/adminPlayer');
+        }
     };
 
-    init();
+    $scope.init();
 };
 
 

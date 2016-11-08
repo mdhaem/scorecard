@@ -7,14 +7,16 @@
 						<div class="form-top-left">
 							<h1>Play</h1>
 						    <p>Select game then team...</p>
+						    <!-- <p><a ng-href="#/adminGame" class="btn btn-sm">Add New Game</a> or <a ng-href="#/adminGame" class="btn btn-sm">Add New Team</a></p> -->
 						    <br/>
+						    <form class="form-inline">
 							<h3 ng-show="selectedGame.idCardGame">{{selectedGame.cardGameName}}</h3>
 							<div ng-hide="selectedGame.idCardGame">
 								<label for="gameSelect">Select game:</label>
 								
 								<select id="gameSelect" ng-options="game as game.cardGameName for game in cardGames" ng-model="game" ng-change="selectedGame(game)">
 									<option value="">-- choose a game --</option>
-								</select>
+								</select><a ng-href="#/adminGame" class="btn btn-sm">Add New Game</a>
 
 							    {{teamSelectDisabled}}
 						    </div>
@@ -23,8 +25,9 @@
 
 								<select id="teamSelect" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
 									<option value="">-- choose a team --</option>
-								</select>
+								</select><a ng-href="#/adminGame" class="btn btn-sm">Add New Team</a>
 						    </div>
+						    </form>
 						 </div>
 					 </div>
 				 </div>

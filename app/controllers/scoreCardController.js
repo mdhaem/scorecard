@@ -3,10 +3,9 @@
 var ScoreCardController = function($scope, CardsService) {
 	$scope.rows = calcArray(parseInt(CardsService.getSelectedCardGame().cardHand, 10));
 	$scope.gameName = CardsService.getSelectedCardGame().cardGameName;
-	$scope.selectedGroup = CardsService.getSelectedGroup();
+	//$scope.selectedGroup = CardsService.getSelectedGroup();
 	$scope.players = CardsService.getSelectedGroup().groupName.split(" ");
-
-	$scope.total = calcArray(CardsService.getSelectedGroup().groupName.split(" ").length, true);
+	$scope.total = calcArray($scope.players.length, true);
 	
 	$scope.onBlur = function(child, parent, score) {
 		var row = parent;
@@ -18,11 +17,10 @@ var ScoreCardController = function($scope, CardsService) {
         this.total[child] += parseInt(score.currentTarget.value, 10) || 0;
     };
 
-    $scope.addRow = function(){	
-    		
+    $scope.addRow = function(){		
 		$scope.rows.push(this.rows.length);
-		
 	};
+
 	$scope.removeRow = function(name){				
 		$scope.rows.pop(this.rows.length);	
 	};
@@ -40,9 +38,7 @@ var calcArray = function(value, zero){
 			list.push(0);
 		}else{
 			list.push(i);
-
-		}
-		
+		}	
 	}
 
 	return list;

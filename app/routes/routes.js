@@ -25,6 +25,14 @@ angular.module('Cards')
 				controller: 'ScoreCardController',
 				templateUrl: 'app/views/scoreCardView.html'
 			})
+			.when('/adminPlayer',{
+				controller: 'AdminPlayerController',
+				templateUrl: 'app/views/adminPlayerView.html'
+			})
+			.when('/adminGame',{
+				controller: 'AdminGameController',
+				templateUrl: 'app/views/adminGameView.html'
+			})
 			.otherwise({ redirectTo: '/login'});
 	});
 

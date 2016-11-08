@@ -18,7 +18,7 @@ var LoginController = function($scope, $location, $http, $timeout, CardsFactory,
     };
 
 	$scope.login = function(){
-		
+		//iscorecards.com/service/CardGame.php?method=validateUser&email=mdhaem@gmail.com&pwd=doscar
 		$http.get("http://iscorecards.com/service/CardGame.php?method=validateUser&email="+$scope.loginData.email+"&pwd="+$scope.loginData.pwd)
 		.then(
 			function successCallback(result){
@@ -26,7 +26,7 @@ var LoginController = function($scope, $location, $http, $timeout, CardsFactory,
 
 				if(result.data !== "") {//.data.length){
 					CardsService.saveUser(result.data); //.data[0].hash);
-					// console.log(CardsService.getUser());
+					//console.log(CardsService.getUser());
 					$location.path('/play');
 				}else{
 					
