@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for controllers/registerController.js</title>
+    <title>Code coverage report for controllers/unregisteredPlayerController.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> registerController.js
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> unregisteredPlayerController.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.36% </span>
+        <span class="strong">47.62% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/11</span>
+        <span class='fraction'>10/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/5</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.36% </span>
+        <span class="strong">47.62% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/11</span>
+        <span class='fraction'>10/21</span>
       </div>
     </div>
   </div>
@@ -86,38 +86,46 @@
 41
 42
 43
-44</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+44
+45
+46
+47
+48</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,46 +139,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function(){
 &nbsp;
-var RegisterController = <span class="fstat-no" title="function not covered" >function($scope, $location, $http, CardsFactory, CardsService) {</span>
-<span class="cstat-no" title="statement not covered" >	$scope.registerData = {</span>
-        email: '',
-        pwd: '',
-        vemail: '',
-        vpwd: ''
-    };
+var UnregisteredPlayerController = function($scope, $location, $timeout, CardsService) {
+	
+	$scope.unregCardGame = {
+		game: {idCardGame: 1, cardGameName: '', cardHand:7},
+		players: {idGroupName: 1, groupName: ''}
+	};
 &nbsp;
+	$scope.display = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        $scope.alertDisplayed = true;</span>
+<span class="cstat-no" title="statement not covered" >	      $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >	        $scope.alertDisplayed = false;</span>
+	      }, 3000)
+      };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	$scope.register = <span class="fstat-no" title="function not covered" >function(){</span></span>
-		
-<span class="cstat-no" title="statement not covered" >		$http.get("http://iscorecards.com/service/CardGame.php?method=saveUser&amp;email="+$scope.registerData.email+"&amp;pwd="+$scope.registerData.pwd)</span>
-		.then(
-<span class="fstat-no" title="function not covered" >			function successCallback(result){</span>
+	$scope.message = '';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >				if(!result.data.includes("Insert Error")){</span>
-					
-					// console.log('Register: '+ result.data);
-					// console.log($scope.registerData);
-<span class="cstat-no" title="statement not covered" >					CardsService.saveUser(result.data);</span>
+	$scope.save = <span class="fstat-no" title="function not covered" >function(){</span>
 &nbsp;
-					// console.log('getUser: ' + CardsService.getUser());
+<span class="cstat-no" title="statement not covered" >		var validPlayersList = $scope.spacesExist($scope.unregCardGame.players.groupName);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >					$location.path('/play');</span>
-				}
-	    	
-			},
-<span class="fstat-no" title="function not covered" >			function errorCallback(error){</span>
-<span class="cstat-no" title="statement not covered" >				console.log(error);</span>
-			}
-		);
+<span class="cstat-no" title="statement not covered" >		if(validPlayersList){</span>
+<span class="cstat-no" title="statement not covered" >			CardsService.saveSelectedCardGame($scope.unregCardGame.game);</span>
+<span class="cstat-no" title="statement not covered" >			CardsService.saveSelectedGroup($scope.unregCardGame.players);</span>
+<span class="cstat-no" title="statement not covered" >			$location.path('/card');</span>
+		}else{
+<span class="cstat-no" title="statement not covered" >			$scope.message = 'Invalid players list. Two or more players seperated by a space are required.';</span>
+<span class="cstat-no" title="statement not covered" >			$scope.display();</span>
+<span class="cstat-no" title="statement not covered" >			$scope.unregCardGame.players.groupName = '';</span>
+&nbsp;
+		}
+	};
+&nbsp;
+	$scope.spacesExist = function(players){
+		return players.split(" ").length-1
 	};
 };
 &nbsp;
 &nbsp;
 &nbsp;
-RegisterController.$inject = ['$scope', '$location', '$http', 'CardsFactory', 'CardsService'];
+&nbsp;
+UnregisteredPlayerController.$inject = ['$scope', '$location', '$timeout', 'CardsService'];
 &nbsp;
 angular.module('Cards')
-	.controller('RegisterController', RegisterController);
+	.controller('UnregisteredPlayerController', UnregisteredPlayerController);
 &nbsp;
 }());</pre></td></tr>
 </table></pre>

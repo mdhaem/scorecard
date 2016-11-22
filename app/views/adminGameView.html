@@ -5,26 +5,29 @@
 				<div class="form-box">
 					<div class="form-top">
 						<div class="form-top-left">
-							<h3>Games</h3>
+							<h3>Add Games</h3>
 							<h4 class="text-danger" ng-show="alertDisplayed">{{message}}</h4>
 						</div>
 						<div class="form-top-right">
-							<i class="fa fa-key"></i>
+							<i class="glyphicon glyphicon-copy"></i>
 						</div>
+						<h4 class="small">Enter the name of your game and expected number of hands. Addition hands can always be added once the score card is  created.</h4>
+						
 					</div>
 					<div class="form-bottom">
-						<form role="form" ng-submit="login()" method="post" class="login-form">
+						<form role="form" ng-submit="save(cardGameName, cardHand)" method="post" class="addGame-form">
+							
 							<div class="form-group">
-								
-								<input type="text" name="form-username" placeholder="Email..." class="form-username form-control" id="form-username" ng-model="loginData.email">
-							</div>
-							<div class="form-group">
-								
-								<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" ng-model="loginData.pwd">
-							</div>
-							<button type="submit" class="btn">Login</button>
-
-							<a ng-href="#/register" class="btn">Register</a>
+								<label for="addGame">New Game Name:</label>
+								<input type="text" name="form-cardGameName" placeholder="Enter Game Name..." class="form-cardGameName form-control" id="addGame" ng-model="newGame.cardGameName">
+								<br/>
+								<label for="handSelect">Game Hands:</label>
+								<select id="handSelect" ng-options="item for item in handCount" ng-model="newGame.hand">
+									<option value="">-- choose a count --</option>
+								</select>
+								<br/><br/>
+								<button type="submit" class="btn">Add Game</button>
+						    </div>
 							
 						</form>
 					</div>

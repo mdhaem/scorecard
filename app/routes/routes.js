@@ -33,6 +33,10 @@ angular.module('Cards')
 				controller: 'AdminGameController',
 				templateUrl: 'app/views/adminGameView.html'
 			})
+			.when('/unregistered',{
+				controller: 'UnregisteredPlayerController',
+				templateUrl: 'app/views/unregisteredPlayerView.html'
+			})
 			.otherwise({ redirectTo: '/login'});
 	});
 

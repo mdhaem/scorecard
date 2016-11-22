@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for tests/unit/adminPlayerControllerUnitTesting.js</title>
+    <title>Code coverage report for tests/unit/unregisteredPlayerControllerUnitTesting.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">tests/unit/</a> adminPlayerControllerUnitTesting.js
+      <a href="../../index.html">all files</a> / <a href="index.html">tests/unit/</a> unregisteredPlayerControllerUnitTesting.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>26/26</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
   </div>
@@ -71,7 +71,30 @@
 26
 27
 28
-29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -82,8 +105,8 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -91,9 +114,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,29 +151,52 @@ describe('Testing ScoreCard', function(){
 &nbsp;
     beforeEach(module('Cards'));
 &nbsp;
-    describe('Testing AdminPlayerController', function(){
+    describe('Testing UnregisteredPlayerController', function(){
         
         var scope, ctrl;
 &nbsp;
         beforeEach(inject(function($controller, $rootScope){
             scope = $rootScope.$new();
-            ctrl = $controller('AdminPlayerController', {$scope:scope});
+            ctrl = $controller('UnregisteredPlayerController', {$scope:scope});
         }));
 &nbsp;
         afterEach(function(){
             //cleanup code
         });
 &nbsp;
-        it('playerNames &amp; groupName should exist', function(){
-             
-             expect(scope.cardPlayers).toBeDefined();
-             expect(scope.groupName).toBeDefined();
+        it('unregCardGame should exist', function(){
+            expect(scope.unregCardGame).toBeDefined();
+            expect(scope.unregCardGame.game).toBeDefined();
+            expect(scope.unregCardGame.game.idCardGame).toBeDefined();
+            expect(scope.unregCardGame.game.cardGameName).toBeDefined();
+            expect(scope.unregCardGame.game.cardHand).toBeDefined();
+            expect(scope.unregCardGame.players).toBeDefined();
+            expect(scope.unregCardGame.players.idGroupName).toBeDefined();
+            expect(scope.unregCardGame.players.groupName).toBeDefined();
+        });
 &nbsp;
-        })
+        it('message should exist', function(){
+            expect(scope.message).toBeDefined();
+        });
+&nbsp;
+        it('save method should exist', function(){  
+             expect(scope.save).toBeDefined();
+        });
+&nbsp;
+        it('players list contains spaces', function(){
+            scope.unregCardGame.players = 'Bill Bev Mike Sandy';
+            expect(scope.unregCardGame.players.match(/\s/g).length).toEqual(3);
+        });
+&nbsp;
+        it('verify groupName contains at least on space seperating names', function(){
+            expect(scope.spacesExist('Mike Sandy')).toBe(1);
+            // expect(myctrl.add('abcd',2)).toBe('invalid args'); // wrong arg type
+        });
+&nbsp;
+        
 &nbsp;
     });
-});
-&nbsp;</pre></td></tr>
+});</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

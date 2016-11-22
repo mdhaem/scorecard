@@ -14,16 +14,15 @@
 							<div ng-hide="selectedGame.idCardGame">
 								<label for="gameSelect">Select game:</label>
 								
-								<select id="gameSelect" ng-options="game as game.cardGameName for game in cardGames" ng-model="game" ng-change="selectedGame(game)">
+<select id="gameSelect" ng-options="game as game.cardGameName for game in cardGames" ng-model="game" ng-change="selectedGame(game)">
 									<option value="">-- choose a game --</option>
 								</select><a ng-href="#/adminGame" class="btn btn-sm">Add New Game</a>
 
-							    {{teamSelectDisabled}}
 						    </div>
 						    <div ng-hide="selectedGroup.idGroup">
 							    <label for="teamSelect">Select team:</label>
 
-								<select id="teamSelect" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
+<select id="teamSelect" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
 									<option value="">-- choose a team --</option>
 								</select><a ng-href="#/adminGame" class="btn btn-sm">Add New Team</a>
 						    </div>

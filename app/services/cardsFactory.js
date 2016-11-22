@@ -1,42 +1,9 @@
 (function(){
 
-var CardsFactory = function($http, CardsService){
+var CardsFactory = function($http, CardsService, $rootScope, $q){
 	var factory = {};
-	var cardGames = [
-						{
-							idCardGame: "1",
-							cardGameName: "Shanghi",
-							cardHand: "7"
-						},
-						{
-							idCardGame: "3",
-							cardGameName: "Hand and Foot",
-							cardHand: "8"
-						},
-						{
-							idCardGame: "50",
-							cardGameName: "Hearts",
-							cardHand: "8"
-						}
-					];
-	var cardPlayers = [
-						{
-							idPlayer: "1",
-							playerName: "Bill York"
-						},
-						{
-							idPlayer: "2",
-							playerName: "Bev York"
-						},
-						{
-							idPlayer: "3",
-							playerName: "Mike DHaem"
-						},
-						{
-							idPlayer: "4",
-							playerName: "Sandy DHaem"
-						}
-					];
+	var cardGames = []; //[{"idCardGame":"1","cardGameName":"Shanghi","cardHand":"7"},{"idCardGame":"3","cardGameName":"Hand and Foot","cardHand":"8"},{"idCardGame":"50","cardGameName":"Hearts","cardHand":"8"},{"idCardGame":"51","cardGameName":"0test","cardHand":"8"}];
+	var cardPlayers = [];
 	var groupNames = [
 						{
 							idGroupName: "1",
@@ -68,42 +35,49 @@ var CardsFactory = function($http, CardsService){
 						idPlayer: "4",
 						won: "5"
 					}
-				]
+				];
 
 	
 	factory.getHistory = function() {
-		return  history; //$http.get('iscorecards.com/service/CardGame.php?method=getHistory');
+		return  $http.get('iscorecards.com/service/CardGame.php?method=getHistory'); //history; //
 	};
 	factory.getPlayers = function() {
-		return  cardPlayers; //$http.get('http://iscorecards.com/service/CardGame.php?method=getPlayers&idCardGame=1&idGroupName=1');
+		return  $http.get('http://iscorecards.com/service/CardGame.php?method=getPlayers&idCardGame=1&idGroupName=1'); //cardPlayers; //
 	};
-	factory.getCardGames = function() {
-		//console.log('registeredUser: ' + CardsService.getUser());
-		var registeredUser = CardsService.getUser();
-		//console.log('registeredUser: ' + registeredUser);
-		if(registeredUser){
-			return  cardGames; //$http.get('http://iscorecards.com/service/CardGame.php?method=getCardGames');
-		}else{
-			return [];
-		}
+	factory.getCardGames = function(hash) {
+		 return $http.get("http://iscorecards.com/service/CardGame.php?method=getCardGames&hash="+hash);
 	};
-	factory.getCardGame = function(idCardGame) {
-		for(var i=0, len=cardGame.length; i < len; i++) {
-			if(cardGame[i].idCardGame === idCardGame) {
-				return cardGame[i];
-			}
-		}
-		return  {};
+	factory.saveNewGame = function(cardGameName, cardHand, hash){
+		return $http.get("http://iscorecards.com/service/CardGame.php?method=saveNewGame&gameName="+cardGameName+"&hand="+cardHand+"&hash="+hash);
 	};
-	factory.getGroupNames = function() {
-		return  groupNames; //$http.get('http://iscorecards.com/service/CardGame.php?method=getGroupNames');
+	factory.getGroupNames = function(hash) {
+		return  $http.get("http://iscorecards.com/service/CardGame.php?method=getGroupNames&hash="+hash);
 	};
+
 	
 	return factory;
 };
 
-CardsFactory.$inject = ['$http', 'CardsService'];
+var getData = function(url, http, q){
+	
+	var defer = q.defer();
+
+	http.get(url).then(function (response){
+		defer.resolve(response.data);
+	},function (response){
+		defer.reject(response)
+	});
+
+	return defer.promise;
+};
+
+CardsFactory.$inject = ['$http', 'CardsService', '$rootScope', '$q'];
 
 angular.module('Cards')
 	.factory('CardsFactory', CardsFactory)
 }());
+
+
+
+
+

@@ -1,6 +1,6 @@
 (function(){
 
-var LoginController = function($scope, $location, $http, $timeout, CardsFactory, CardsService) {
+var LoginController = function($scope, $location, $http, $timeout, CardsService) {
 	// $scope.email;
 	// $scope.pwd;
 	$scope.loginData = {
@@ -22,9 +22,9 @@ var LoginController = function($scope, $location, $http, $timeout, CardsFactory,
 		$http.get("http://iscorecards.com/service/CardGame.php?method=validateUser&email="+$scope.loginData.email+"&pwd="+$scope.loginData.pwd)
 		.then(
 			function successCallback(result){
-				// console.log(result);
+//console.log(result.data.error);
 
-				if(result.data !== "") {//.data.length){
+				if(result.data.error === undefined) {//.data.length){
 					CardsService.saveUser(result.data); //.data[0].hash);
 					//console.log(CardsService.getUser());
 					$location.path('/play');
@@ -45,7 +45,7 @@ var LoginController = function($scope, $location, $http, $timeout, CardsFactory,
 
 
 
-LoginController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsFactory', 'CardsService'];
+LoginController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsService'];
 
 angular.module('Cards')
 	.controller('LoginController', LoginController);

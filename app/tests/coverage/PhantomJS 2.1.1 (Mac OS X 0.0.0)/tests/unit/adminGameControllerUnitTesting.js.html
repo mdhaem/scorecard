@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for tests/unit/adminPlayerControllerUnitTesting.js</title>
+    <title>Code coverage report for tests/unit/adminGameControllerUnitTesting.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">tests/unit/</a> adminPlayerControllerUnitTesting.js
+      <a href="../../index.html">all files</a> / <a href="index.html">tests/unit/</a> adminGameControllerUnitTesting.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>10/10</span>
       </div>
     </div>
   </div>
@@ -70,8 +70,7 @@
 25
 26
 27
-28
-29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+28</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,7 +91,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,23 +103,22 @@ describe('Testing ScoreCard', function(){
 &nbsp;
     beforeEach(module('Cards'));
 &nbsp;
-    describe('Testing AdminPlayerController', function(){
+    describe('Testing AdminGameController', function(){
         
         var scope, ctrl;
 &nbsp;
         beforeEach(inject(function($controller, $rootScope){
             scope = $rootScope.$new();
-            ctrl = $controller('AdminPlayerController', {$scope:scope});
+            ctrl = $controller('AdminGameController', {$scope:scope});
         }));
 &nbsp;
         afterEach(function(){
             //cleanup code
         });
 &nbsp;
-        it('playerNames &amp; groupName should exist', function(){
+        it('save should exist', function(){
              
-             expect(scope.cardPlayers).toBeDefined();
-             expect(scope.groupName).toBeDefined();
+             expect(scope.save).toBeDefined();
 &nbsp;
         })
 &nbsp;

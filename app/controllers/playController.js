@@ -16,9 +16,23 @@
   	}; 
 
     $scope.init = function init() {
-    	$scope.groupNames = CardsFactory.getGroupNames();
-		$scope.cardGames = CardsFactory.getCardGames();
-        if($scope.cardGames.length === 0){
+        //Get card games associated with user
+        var hash = CardsService.getUser();
+
+        if(hash === ""){
+            $location.path('/adminGame');
+        }
+
+        $scope.cardGames = CardsFactory.getCardGames(hash).then(function(dataResponse){
+            $scope.cardGames = dataResponse.data;
+        });
+
+        //Get card teams associated with user
+        $scope.groupNames = CardsFactory.getGroupNames(hash).then(function(dataResponse){
+            $scope.groupNames = dataResponse.data;
+        });
+
+        if($scope.groupNames.length === 0 && CardsService.getSelectedCardGame() == 1){
             $location.path('/adminPlayer');
         }
     };

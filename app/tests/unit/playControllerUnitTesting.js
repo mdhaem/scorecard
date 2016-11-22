@@ -69,7 +69,21 @@ describe('Testing ScoreCard', function(){
             scope.cardGames = [];
             scope.init();
 
-            expect(location.path).toHaveBeenCalledWith('/adminPlayer');
+            expect(location.path).toHaveBeenCalledWith('/adminGame');
+        });
+
+        it('should change location when groupNames length is 0 and game has been selected', function() { 
+
+            // cardsService.saveSelectedCardGame('Shanghi');
+
+            // console.log('saveSelectedCardGame: ' + cardsService.getSelectedCardGame());
+
+            // scope.groupNames = [];
+
+        
+            // scope.init();
+
+            // expect(location.path).toHaveBeenCalledWith('/adminPlayer');
         });
 
         it('isDisabled should be false', function(){
