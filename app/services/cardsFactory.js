@@ -4,38 +4,8 @@ var CardsFactory = function($http, CardsService, $rootScope, $q){
 	var factory = {};
 	var cardGames = []; //[{"idCardGame":"1","cardGameName":"Shanghi","cardHand":"7"},{"idCardGame":"3","cardGameName":"Hand and Foot","cardHand":"8"},{"idCardGame":"50","cardGameName":"Hearts","cardHand":"8"},{"idCardGame":"51","cardGameName":"0test","cardHand":"8"}];
 	var cardPlayers = [];
-	var groupNames = [
-						{
-							idGroupName: "1",
-							groupName: "Bill Bev Mike Sandy"
-						},
-						{
-							idGroupName: "1",
-							groupName: "Bill Bev"
-						},
-						{
-							idGroupName: "1",
-							groupName: "Bill Bev Mike Sandy Curt"
-						}
-					];	
-	var history = [
-					{
-						idPlayer: "1",
-						won: "5"
-					},
-					{
-						idPlayer: "2",
-						won: "7"
-					},
-					{
-						idPlayer: "3",
-						won: "5"
-					},
-					{
-						idPlayer: "4",
-						won: "5"
-					}
-				];
+	var groupNames = [{idGroupName: "1",groupName: "Bill Bev Mike Sandy"},{idGroupName: "1",groupName: "Bill Bev"},{idGroupName: "1",groupName: "Bill Bev Mike Sandy Curt"}];	
+	var history = [{idPlayer: "1",won: "5"},{idPlayer: "2",won: "7"},{idPlayer: "3",won: "5"},{idPlayer: "4",won: "5"}];
 
 	
 	factory.getHistory = function() {

@@ -36,13 +36,13 @@ describe('Testing ScoreCard', function(){
              expect(scope.save).toBeDefined();
         });
 
-        it('players list contains spaces', function(){
-            scope.unregCardGame.players = 'Bill Bev Mike Sandy';
-            expect(scope.unregCardGame.players.match(/\s/g).length).toEqual(3);
-        });
+        // it('players list contains spaces', function(){
+        //     scope.unregCardGame.players = 'Bill Bev Mike Sandy';
+        //     expect(scope.unregCardGame.players.match(/\s/g).length).toEqual(3);
+        // });
 
         it('verify groupName contains at least on space seperating names', function(){
-            expect(scope.spacesExist('Mike Sandy')).toBe(1);
+            expect(scope.spacesExist('Mike jSandy')).toBe(1);
             // expect(myctrl.add('abcd',2)).toBe('invalid args'); // wrong arg type
         });
 

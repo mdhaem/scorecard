@@ -28,3 +28,13 @@ display: inline-block;
 #teamSelect{
 	margin-left: .26em;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.enabled {
+    pointer-events: visible;
+    cursor: auto;
+}

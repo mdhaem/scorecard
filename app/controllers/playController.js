@@ -4,10 +4,12 @@
 	$scope.groupNames = [];
 	$scope.cardGames = [];
 	$scope.isDisabled = true;
+    $scope.toggle = 'disabled';
 
 	$scope.selectedGame  = function(game) {
     	CardsService.saveSelectedCardGame(game);
     	$scope.isDisabled = false;
+        $scope.toggle = 'enabled';
   	}; 
 
 	$scope.selectedGroup = function(group) {

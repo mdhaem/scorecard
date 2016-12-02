@@ -5,13 +5,21 @@
 				<div class="form-box">
 					<div class="form-top">
 						<div class="form-top-left">
+							<h1>{{gameName}}</h1>
 							<h3>Assemble Team</h3>
-
-							<select id="playersSelect" ng-options="player as player.playerName for player in cardPlayers" ng-model="player" ng-change="selectedPlayer(player)" ng-disabled="isDisabled">
-									<option value="">-- choose a player --</option>
-
-
-
+							<h4 class="text-danger" ng-show="alertDisplayed">{{message}}</h4>
+						</div>
+						<div class="form-top-right">
+							<i class="glyphicon glyphicon-copy"></i>
+						</div>
+						
+					</div>
+					<div class="form-bottom">
+						<form role="form" ng-submit="save($scope.gameName, unregCardGame.players)" method="post" class="addGame-form">
+							<div class="form-group">
+							<add-players-directive></add-players-directive>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
