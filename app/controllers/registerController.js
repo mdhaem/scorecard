@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
 var RegisterController = function($scope, $location, $http, CardsFactory, CardsService) {
@@ -11,11 +13,11 @@ var RegisterController = function($scope, $location, $http, CardsFactory, CardsS
 
 	$scope.register = function(){
 		
-		$http.get("http://iscorecards.com/service/CardGame.php?method=saveUser&email="+$scope.registerData.email+"&pwd="+$scope.registerData.pwd)
-		.then(
+		$http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&email='+$scope.registerData.email+'&pwd='+$scope.registerData.pwd).then
+		(
 			function successCallback(result){
 
-				if(!result.data.includes("Insert Error")){
+				if(!result.data.includes('Insert Error')){
 					
 					// console.log('Register: '+ result.data);
 					// console.log($scope.registerData);

@@ -1,9 +1,13 @@
+'use strict';
+
 (function(){
 
 	var AdminPlayerController = function($scope, $location, $http, CardsFactory, CardsService) {
 		$scope.cardPlayers = [];
 	    $scope.groupName = '';
 		$scope.gameName = CardsService.getSelectedCardGame().cardGameName;
+		$scope.idCardGame = CardsService.getSelectedCardGame().idCardGame;
+		$scope.hash = CardsService.getUser();
 		$scope.button = 'Add Players';
 		
 		$scope.save = function save(){
@@ -11,7 +15,12 @@
 			var validPlayersList = $scope.spacesExist($scope.unregCardGame.players.groupName);
 
 			if(validPlayersList){
-				CardsService.saveSelectedCardGame($scope.unregCardGame.game);
+
+				$scope.response = CardsFactory.saveNewGame($scope.groupName, $scope.idCardGame, $scope.hash).then(function(dataResponse){
+	            	$scope.response = dataResponse.data;
+	            	console.log('response: '+$scope.response);
+				});
+
 				CardsService.saveSelectedGroup($scope.unregCardGame.players);
 				$location.path('/card');
 			}else{
@@ -20,14 +29,12 @@
 				$scope.groupName = '';
 
 			}
-		};
 
-		// $scope.init = function init() {
-		//     $scope.cardPlayers = CardsFactory.getPlayers();
-		//     console.log($scope.cardPlayers);	
-		// };
+        };
 
-		// $scope.init();
+		$scope.spacesExist = function(players){
+		return players.split(' ').length-1;
+	};
 
 	};
 	

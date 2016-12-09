@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
 var CardsService = function(){
@@ -31,5 +33,5 @@ var CardsService = function(){
 };
 
 angular.module('Cards')
-	.service('CardsService', CardsService)
+	.service('CardsService', CardsService);
 }());

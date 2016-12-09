@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/18</span>
+        <span class='fraction'>12/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">40% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>2/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/18</span>
+        <span class='fraction'>12/24</span>
       </div>
     </div>
   </div>
@@ -81,50 +81,68 @@
 36
 37
 38
-39</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+39
+40
+41
+42
+43
+44
+45
+46</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function(){
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+(function(){
 &nbsp;
 	var AdminPlayerController = function($scope, $location, $http, CardsFactory, CardsService) {
 		$scope.cardPlayers = [];
 	    $scope.groupName = '';
 		$scope.gameName = CardsService.getSelectedCardGame().cardGameName;
+		$scope.idCardGame = CardsService.getSelectedCardGame().idCardGame;
+		$scope.hash = CardsService.getUser();
 		$scope.button = 'Add Players';
 		
 		$scope.save = <span class="fstat-no" title="function not covered" >function save(){</span>
@@ -132,7 +150,12 @@
 <span class="cstat-no" title="statement not covered" >			var validPlayersList = $scope.spacesExist($scope.unregCardGame.players.groupName);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >			if(validPlayersList){</span>
-<span class="cstat-no" title="statement not covered" >				CardsService.saveSelectedCardGame($scope.unregCardGame.game);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				$scope.response = CardsFactory.saveNewGame($scope.groupName, $scope.idCardGame, $scope.hash).then(<span class="fstat-no" title="function not covered" >function(dataResponse){</span></span>
+<span class="cstat-no" title="statement not covered" >	            	$scope.response = dataResponse.data;</span>
+<span class="cstat-no" title="statement not covered" >	            	console.log('response: '+$scope.response);</span>
+				});
+&nbsp;
 <span class="cstat-no" title="statement not covered" >				CardsService.saveSelectedGroup($scope.unregCardGame.players);</span>
 <span class="cstat-no" title="statement not covered" >				$location.path('/card');</span>
 			}else{
@@ -141,14 +164,12 @@
 <span class="cstat-no" title="statement not covered" >				$scope.groupName = '';</span>
 &nbsp;
 			}
-		};
 &nbsp;
-		// $scope.init = function init() {
-		//     $scope.cardPlayers = CardsFactory.getPlayers();
-		//     console.log($scope.cardPlayers);	
-		// };
+        };
 &nbsp;
-		// $scope.init();
+		$scope.spacesExist = <span class="fstat-no" title="function not covered" >function(players){</span>
+<span class="cstat-no" title="statement not covered" >		return players.split(' ').length-1;</span>
+	};
 &nbsp;
 	};
 	
@@ -163,7 +184,7 @@ angular.module('Cards')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 27 2016 13:07:12 GMT-0500 (EST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 08 2016 12:32:34 GMT-0500 (EST)
 </div>
 </div>
 <script src="../prettify.js"></script>

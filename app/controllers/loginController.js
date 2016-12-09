@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
 var LoginController = function($scope, $location, $http, $timeout, CardsService) {
@@ -14,12 +16,12 @@ var LoginController = function($scope, $location, $http, $timeout, CardsService)
         $scope.alertDisplayed = true;
       $timeout(function() {
         $scope.alertDisplayed = false;
-      }, 3000)
+      }, 3000);
     };
 
 	$scope.login = function(){
 		//iscorecards.com/service/CardGame.php?method=validateUser&email=mdhaem@gmail.com&pwd=doscar
-		$http.get("http://iscorecards.com/service/CardGame.php?method=validateUser&email="+$scope.loginData.email+"&pwd="+$scope.loginData.pwd)
+		$http.get('http://iscorecards.com/service/CardGame.php?method=validateUser&email='+$scope.loginData.email+'&pwd='+$scope.loginData.pwd)
 		.then(
 			function successCallback(result){
 //console.log(result.data.error);
@@ -30,7 +32,7 @@ var LoginController = function($scope, $location, $http, $timeout, CardsService)
 					$location.path('/play');
 				}else{
 					
-					$scope.message = "Invalid email or password.";
+					$scope.message = 'Invalid email or password.';
 					//$scope.showMessage = true;
 					$scope.display();
 				}

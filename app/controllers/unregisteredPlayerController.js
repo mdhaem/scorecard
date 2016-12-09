@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
 var UnregisteredPlayerController = function($scope, $location, $timeout, CardsService) {
@@ -11,7 +13,7 @@ var UnregisteredPlayerController = function($scope, $location, $timeout, CardsSe
         $scope.alertDisplayed = true;
 	      $timeout(function() {
 	        $scope.alertDisplayed = false;
-	      }, 3000)
+	      }, 3000);
       };
 
 	$scope.message = '';
@@ -33,7 +35,7 @@ var UnregisteredPlayerController = function($scope, $location, $timeout, CardsSe
 	};
 
 	$scope.spacesExist = function(players){
-		return players.split(" ").length-1
+		return players.split(' ').length-1;
 	};
 };
 

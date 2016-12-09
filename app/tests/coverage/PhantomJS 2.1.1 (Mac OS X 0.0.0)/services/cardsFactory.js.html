@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">69.23% </span>
+        <span class="strong">80.95% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/26</span>
+        <span class='fraction'>17/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">55.56% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>5/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">69.23% </span>
+        <span class="strong">80.95% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>18/26</span>
+        <span class='fraction'>17/21</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -89,54 +89,40 @@
 44
 45
 46
-47
-48
-49
-50
-51
-52
-53
-54</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+47</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">8×</span>
-<span class="cline-any cline-yes">8×</span>
-<span class="cline-any cline-yes">8×</span>
-<span class="cline-any cline-yes">8×</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-yes">7×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-yes">7×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -149,14 +135,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function(){
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-var CardsFactory = function($http, CardsService, $rootScope, $q){
+(function(){
+&nbsp;
+var CardsFactory = function($http){
 	var factory = {};
-	var cardGames = []; //[{"idCardGame":"1","cardGameName":"Shanghi","cardHand":"7"},{"idCardGame":"3","cardGameName":"Hand and Foot","cardHand":"8"},{"idCardGame":"50","cardGameName":"Hearts","cardHand":"8"},{"idCardGame":"51","cardGameName":"0test","cardHand":"8"}];
-	var cardPlayers = [];
-	var groupNames = [{idGroupName: "1",groupName: "Bill Bev Mike Sandy"},{idGroupName: "1",groupName: "Bill Bev"},{idGroupName: "1",groupName: "Bill Bev Mike Sandy Curt"}];	
-	var history = [{idPlayer: "1",won: "5"},{idPlayer: "2",won: "7"},{idPlayer: "3",won: "5"},{idPlayer: "4",won: "5"}];
+	var history = [{idPlayer: '1',won: '5'},{idPlayer: '2',won: '7'},{idPlayer: '3',won: '5'},{idPlayer: '4',won: '5'}];
 &nbsp;
 	
 	factory.getHistory = <span class="fstat-no" title="function not covered" >function() {</span>
@@ -166,36 +151,30 @@ var CardsFactory = function($http, CardsService, $rootScope, $q){
 <span class="cstat-no" title="statement not covered" >		return  $http.get('http://iscorecards.com/service/CardGame.php?method=getPlayers&amp;idCardGame=1&amp;idGroupName=1'); </span>//cardPlayers; //
 	};
 	factory.getCardGames = function(hash) {
-		 return $http.get("http://iscorecards.com/service/CardGame.php?method=getCardGames&amp;hash="+hash);
+		 return $http.get('http://iscorecards.com/service/CardGame.php?method=getCardGames&amp;hash='+hash);
 	};
 	factory.saveNewGame = <span class="fstat-no" title="function not covered" >function(cardGameName, cardHand, hash){</span>
-<span class="cstat-no" title="statement not covered" >		return $http.get("http://iscorecards.com/service/CardGame.php?method=saveNewGame&amp;gameName="+cardGameName+"&amp;hand="+cardHand+"&amp;hash="+hash);</span>
+<span class="cstat-no" title="statement not covered" >		return $http.get('http://iscorecards.com/service/CardGame.php?method=saveNewGame&amp;gameName='+cardGameName+'&amp;hand='+cardHand+'&amp;hash='+hash);</span>
 	};
 	factory.getGroupNames = function(hash) {
-		return  $http.get("http://iscorecards.com/service/CardGame.php?method=getGroupNames&amp;hash="+hash);
+		return  $http.get('http://iscorecards.com/service/CardGame.php?method=getGroupNames&amp;hash='+hash);
+	};
+	factory.saveNewGroupName = <span class="fstat-no" title="function not covered" >function(groupName, idCardGame, hash){</span>
+		//saveNewGroupName($groupName, $idCardGame, $hash)
+<span class="cstat-no" title="statement not covered" >		return $http.get('http://iscorecards.com/service/CardGame.php?method=saveNewGroupName&amp;groupName='+groupName+'&amp;idCardGame='+idCardGame+'&amp;hash='+hash);</span>
+	};
+	factory.getHistory = function() {
+		return history;
 	};
 &nbsp;
 	
 	return factory;
 };
 &nbsp;
-var getData = <span class="fstat-no" title="function not covered" >function(url, http, q){</span>
-	
-<span class="cstat-no" title="statement not covered" >	var defer = q.defer();</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >	http.get(url).then(<span class="fstat-no" title="function not covered" >function (response){</span></span>
-<span class="cstat-no" title="statement not covered" >		defer.resolve(response.data);</span>
-	},<span class="fstat-no" title="function not covered" >function (response){</span>
-<span class="cstat-no" title="statement not covered" >		defer.reject(response)</span>
-	});
-&nbsp;
-<span class="cstat-no" title="statement not covered" >	return defer.promise;</span>
-};
-&nbsp;
-CardsFactory.$inject = ['$http', 'CardsService', '$rootScope', '$q'];
+CardsFactory.$inject = ['$http'];
 &nbsp;
 angular.module('Cards')
-	.factory('CardsFactory', CardsFactory)
+	.factory('CardsFactory', CardsFactory);
 }());
 &nbsp;
 &nbsp;
@@ -208,7 +187,7 @@ angular.module('Cards')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 27 2016 13:07:12 GMT-0500 (EST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 08 2016 12:32:34 GMT-0500 (EST)
 </div>
 </div>
 <script src="../prettify.js"></script>

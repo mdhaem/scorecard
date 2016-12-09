@@ -1,3 +1,5 @@
+'use strict';
+
 (function(){
 
 	var PlayController = function($scope, $location, CardsFactory, CardsService) {
@@ -21,7 +23,7 @@
         //Get card games associated with user
         var hash = CardsService.getUser();
 
-        if(hash === ""){
+        if(hash === ''){
             $location.path('/adminGame');
         }
 
@@ -34,7 +36,7 @@
             $scope.groupNames = dataResponse.data;
         });
 
-        if($scope.groupNames.length === 0 && CardsService.getSelectedCardGame() == 1){
+        if($scope.groupNames.length === 0 && CardsService.getSelectedCardGame() === 1){
             $location.path('/adminPlayer');
         }
     };

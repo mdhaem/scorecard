@@ -9,9 +9,9 @@
 						    	
 						    	<h1>{{gameName}}</h1>
 								<table>
-									<tr>
+									<tr ng-show="showHistory">
 										<td>History</td>
-										<td ng-repeat="player in players"></td>
+										<td ng-repeat="player in players">{{history[$index].won}}</td>
 									</tr>
 									<tr>
 										<td>Score</td>
