@@ -16,7 +16,7 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
         $scope.alertDisplayed = true;
       $timeout(function() {
         $scope.alertDisplayed = false;
-      }, 3000);
+      }, 6000);
     };
 
 	$scope.register = function(){
@@ -34,24 +34,27 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
 			$scope.registerData.vpwd = '';
 		}
 		if($scope.message === ''){
+
 			$http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&email='+$scope.registerData.email+'&pwd='+$scope.registerData.pwd).then
 			(
 				function successCallback(result){
 
 					if(!result.data.includes('Insert Error')){
 						
-						// console.log('Register: '+ result.data);
-						// console.log($scope.registerData);
 						CardsService.saveUser(result.data);
-
-						// console.log('getUser: ' + CardsService.getUser());
-
 						$location.path('/play');
+					}else{
+						$scope.message = 'User already exists!';
+						$scope.display();
+						$scope.registerData.email = '';
+						$scope.registerData.vemail = '';
+						$scope.registerData.pwd = '';
+						$scope.registerData.vpwd = '';
 					}
 		    	
 				},
 				function errorCallback(error){
-					console.log(error);
+					console.log('ERROR: ' + error);
 				}
 			);
 		}
@@ -60,7 +63,7 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
 
 
 
-RegisterController.$inject = ['$scope', '$location', '$http', 'CardsFactory', 'CardsService'];
+RegisterController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsService'];
 
 angular.module('Cards')
 	.controller('RegisterController', RegisterController);

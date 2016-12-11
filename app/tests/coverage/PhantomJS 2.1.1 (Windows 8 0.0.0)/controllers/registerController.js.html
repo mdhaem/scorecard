@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">64.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/28</span>
+        <span class='fraction'>22/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">37.5% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">64.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/28</span>
+        <span class='fraction'>22/34</span>
       </div>
     </div>
   </div>
@@ -110,7 +110,10 @@
 65
 66
 67
-68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+68
+69
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,8 +128,8 @@
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,30 +137,33 @@
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,46 +197,49 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
     $scope.message = '';
     $scope.alertDisplayed = false;
 &nbsp;
-     $scope.display = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >        $scope.alertDisplayed = true;</span>
-<span class="cstat-no" title="statement not covered" >      $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+     $scope.display = function() {
+        $scope.alertDisplayed = true;
+      $timeout(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >        $scope.alertDisplayed = false;</span>
-      }, 3000);
+      }, 6000);
     };
 &nbsp;
 	$scope.register = function(){
 &nbsp;
-		<span class="missing-if-branch" title="if path not taken" >I</span>if($scope.registerData.email !== $scope.registerData.vemail) {
-<span class="cstat-no" title="statement not covered" >			$scope.message = 'Emails do not match';</span>
-<span class="cstat-no" title="statement not covered" >			$scope.display();</span>
-<span class="cstat-no" title="statement not covered" >			$scope.registerData.email = '';</span>
-<span class="cstat-no" title="statement not covered" >			$scope.registerData.vemail = '';</span>
+		<span class="missing-if-branch" title="else path not taken" >E</span>if($scope.registerData.email !== $scope.registerData.vemail) {
+			$scope.message = 'Emails do not match';
+			$scope.display();
+			$scope.registerData.email = '';
+			$scope.registerData.vemail = '';
 		}
-		<span class="missing-if-branch" title="if path not taken" >I</span>if($scope.registerData.pwd !== $scope.registerData.vpwd) {
-<span class="cstat-no" title="statement not covered" >			$scope.message = 'Passwords do not match';</span>
-<span class="cstat-no" title="statement not covered" >			$scope.display();</span>
-<span class="cstat-no" title="statement not covered" >			$scope.registerData.pwd = '';</span>
-<span class="cstat-no" title="statement not covered" >			$scope.registerData.vpwd = '';</span>
+		<span class="missing-if-branch" title="else path not taken" >E</span>if($scope.registerData.pwd !== $scope.registerData.vpwd) {
+			$scope.message = 'Passwords do not match';
+			$scope.display();
+			$scope.registerData.pwd = '';
+			$scope.registerData.vpwd = '';
 		}
-		<span class="missing-if-branch" title="else path not taken" >E</span>if($scope.message === ''){
-			$http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&amp;email='+$scope.registerData.email+'&amp;pwd='+$scope.registerData.pwd).then
+		<span class="missing-if-branch" title="if path not taken" >I</span>if($scope.message === ''){
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			$http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&amp;email='+$scope.registerData.email+'&amp;pwd='+$scope.registerData.pwd).then</span>
 			(
-				function successCallback(result){
+<span class="fstat-no" title="function not covered" >				function successCallback(result){</span>
 &nbsp;
-					if(!result.data.includes('Insert Error')){
+<span class="cstat-no" title="statement not covered" >					if(!result.data.includes('Insert Error')){</span>
 						
-						// console.log('Register: '+ result.data);
-						// console.log($scope.registerData);
 <span class="cstat-no" title="statement not covered" >						CardsService.saveUser(result.data);</span>
-&nbsp;
-						// console.log('getUser: ' + CardsService.getUser());
-&nbsp;
 <span class="cstat-no" title="statement not covered" >						$location.path('/play');</span>
+					}else{
+<span class="cstat-no" title="statement not covered" >						$scope.message = 'User already exists!';</span>
+<span class="cstat-no" title="statement not covered" >						$scope.display();</span>
+<span class="cstat-no" title="statement not covered" >						$scope.registerData.email = '';</span>
+<span class="cstat-no" title="statement not covered" >						$scope.registerData.vemail = '';</span>
+<span class="cstat-no" title="statement not covered" >						$scope.registerData.pwd = '';</span>
+<span class="cstat-no" title="statement not covered" >						$scope.registerData.vpwd = '';</span>
 					}
 		    	
 				},
 <span class="fstat-no" title="function not covered" >				function errorCallback(error){</span>
-<span class="cstat-no" title="statement not covered" >					console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >					console.log('ERROR: ' + error);</span>
 				}
 			);
 		}
@@ -239,7 +248,7 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
 &nbsp;
 &nbsp;
 &nbsp;
-RegisterController.$inject = ['$scope', '$location', '$http', 'CardsFactory', 'CardsService'];
+RegisterController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsService'];
 &nbsp;
 angular.module('Cards')
 	.controller('RegisterController', RegisterController);
@@ -250,7 +259,7 @@ angular.module('Cards')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 09 2016 20:28:11 GMT-0500 (Eastern Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Dec 11 2016 08:41:39 GMT-0500 (Eastern Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

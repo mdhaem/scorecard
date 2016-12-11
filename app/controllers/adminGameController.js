@@ -14,6 +14,9 @@ var AdminGameController = function($scope, $location, $http, CardsFactory, Cards
        if(hash === ''){
        	hash = 'none';
        }
+
+console.log('hash: '+hash);
+
         $scope.response = CardsFactory.saveNewGame($scope.newGame.cardGameName, $scope.newGame.hand, hash).then(function(dataResponse){
             $scope.response = dataResponse.data;
             console.log('response: '+$scope.response);
