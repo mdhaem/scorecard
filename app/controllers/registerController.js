@@ -2,13 +2,15 @@
 
 (function(){
 
-var RegisterController = function($scope, $location, $http, $timeout, CardsService) {
+var RegisterController = function($scope, $location, $http, $timeout, CardsService, CardsFactory) {
 	$scope.registerData = {
         email: '',
         pwd: '',
         vemail: '',
-        vpwd: ''
+        vpwd: '',
+        valid: true
     };
+
     $scope.message = '';
     $scope.alertDisplayed = false;
 
@@ -24,18 +26,16 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
 		if($scope.registerData.email !== $scope.registerData.vemail) {
 			$scope.message = 'Emails do not match';
 			$scope.display();
-			$scope.registerData.email = '';
-			$scope.registerData.vemail = '';
+			$scope.registerData.valid = false;
 		}
 		if($scope.registerData.pwd !== $scope.registerData.vpwd) {
 			$scope.message = 'Passwords do not match';
 			$scope.display();
-			$scope.registerData.pwd = '';
-			$scope.registerData.vpwd = '';
+			$scope.registerData.valid = false;
 		}
-		if($scope.message === ''){
+		if($scope.registerData.valid){
 
-			$http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&email='+$scope.registerData.email+'&pwd='+$scope.registerData.pwd).then
+			CardsFactory.saveUser($scope.registerData.email, $scope.registerData.pwd).then
 			(
 				function successCallback(result){
 
@@ -63,7 +63,7 @@ var RegisterController = function($scope, $location, $http, $timeout, CardsServi
 
 
 
-RegisterController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsService'];
+RegisterController.$inject = ['$scope', '$location', '$http', '$timeout', 'CardsService', 'CardsFactory'];
 
 angular.module('Cards')
 	.controller('RegisterController', RegisterController);

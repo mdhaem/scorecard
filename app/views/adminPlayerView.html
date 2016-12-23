@@ -17,7 +17,13 @@
 					<div class="form-bottom">
 						<form role="form" ng-submit="save()" method="post" class="addGame-form">
 							<div class="form-group">
-							<add-players-directive></add-players-directive>
+								<add-players-directive action="save()"></add-players-directive>
+							</div>
+							<div>
+								<delete-players-directive 
+									defaultSelectOption="{{defaultSelectOption}}"
+									instruction = "{{instruction}}">
+								</delete-players-directive>	
 							</div>
 						</form>
 					</div>

@@ -22,7 +22,7 @@ describe('Testing ScoreCard', function(){
              expect(scope.cardPlayers).toBeDefined();
              expect(scope.groupName).toBeDefined();
 
-        })
+        });
 
     });
 });

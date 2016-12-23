@@ -4,7 +4,7 @@
 
     var directive = function () {
         return {
-        	scope: {},
+        	//scope: {},
         	templateUrl: 'app/directives/addPlayersDirective.html',
         	replace: true,
         	action: 'save()'

@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 		jshint: {
 			options: {
 				jshintrc: true,
-				ignores: ['app/tests/**/*.js']
+				ignores: ['app/tests/coverage/**/*.js']
 			},
     		files: ['app/**/*.js']
   		},

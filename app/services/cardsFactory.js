@@ -29,8 +29,13 @@ var CardsFactory = function($http){
 	factory.getHistory = function() {
 		return history;
 	};
+	factory.saveUser = function(email, pwd) {
+		return $http.get('http://iscorecards.com/service/CardGame.php?method=saveUser&email='+email+'&pwd='+pwd);
+	};
+	factory.validateUser = function(email, pwd) {
+		return $http.get('http://iscorecards.com/service/CardGame.php?method=validateUser&email='+email+'&pwd='+pwd);
+	};
 
-	
 	return factory;
 };
 

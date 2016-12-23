@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.31% </span>
+        <span class="strong">96.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>24/26</span>
+        <span class='fraction'>29/30</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.31% </span>
+        <span class="strong">96.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>24/26</span>
+        <span class='fraction'>29/30</span>
       </div>
     </div>
   </div>
@@ -89,7 +89,19 @@
 44
 45
 46
-47</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,8 +110,10 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -119,75 +133,94 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
 describe('Testing RegisterController', function() {
-        beforeEach(module('Cards'));
+    var httpBackend, controller, scope, cardsService, cardsFactory;
+&nbsp;
+    beforeEach(module('Cards'));
         
-        var controller, scope, httpBackend;
+    beforeEach(inject(function($httpBackend, $controller, $rootScope, CardsService, CardsFactory){
+        httpBackend = $httpBackend;
+        scope = $rootScope.$new();
+        //controller = $controller('RegisterController', {$scope: scope});
+        cardsService = CardsService;
+        cardsFactory = CardsFactory;
+        controller = $controller('RegisterController', {$scope: scope});
+    }));
 &nbsp;
-        beforeEach(inject(function($controller, $rootScope, $httpBackend,  CardsService){
-            scope = $rootScope.$new();
-            controller = $controller('RegisterController', {$scope: scope});
-            httpBackend = $httpBackend;
-            cardsService = CardsService;
-        }));
+    afterEach(function(){
+        httpBackend.verifyNoOutstandingExpectation();
+        httpBackend.verifyNoOutstandingRequest();
+    }); 
 &nbsp;
-        afterEach(function(){
-            httpBackend.verifyNoOutstandingExpectation();
-            httpBackend.verifyNoOutstandingRequest();
-        }); 
-&nbsp;
-        describe('register', function() {
-            it('sets registerData object', function() {
-                expect(scope.registerData).toBeDefined();
-                expect(scope.registerData.email).toEqual('');
-                expect(scope.registerData.pwd).toEqual('');
-                expect(scope.registerData.vemail).toEqual('');
-                expect(scope.registerData.vpwd).toEqual('');
-            });
-&nbsp;
-            it('Should get a hash value for successful registration', function(){
-                scope.registerData.email = 'mdhaem@gmail.com';
-                scope.registerData.pwd = 'doscar';
-&nbsp;
-                httpBackend.expectGET('http://iscorecards.com/service/CardGame.php?method=saveUser&amp;email='+scope.registerData.email+'&amp;pwd='+scope.registerData.pwd).respond('68a05200c8a69b93994302c0f9ebe44d');
-&nbsp;
-                scope.register();
-&nbsp;
-                httpBackend.flush();
-&nbsp;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >console.log('User: '+cardsService.getUser());</span>
-&nbsp;
-                // expect(scope.loginData.email).toEqual('mdhaem@gmail.com');
-                // expect(scope.loginData.pwd).toEqual('doscar');
-<span class="cstat-no" title="statement not covered" >                expect(cardsService.getUser()).toEqual("68a05200c8a69b93994302c0f9ebe44d");</span>
-            });
-        
+    describe('register', function() {
+        it('sets registerData object', function() {
+            expect(scope.registerData).toBeDefined();
+            expect(scope.registerData.email).toEqual('');
+            expect(scope.registerData.pwd).toEqual('');
+            expect(scope.registerData.vemail).toEqual('');
+            expect(scope.registerData.vpwd).toEqual('');
         });
-    });</pre></td></tr>
+&nbsp;
+        it('Should get a hash value for successful registration', function(){
+            scope.registerData.email = 'sixth@gmail.com';
+            scope.registerData.pwd = 'sixth';
+            scope.registerData.vemail = 'sixth@gmail.com';
+            scope.registerData.vpwd = 'sixth';
+            scope.registerData.valid = true;
+&nbsp;
+            console.log(scope.registerData.email);
+            console.log(scope.registerData.pwd);
+            
+            // cardsFactory.saveUser(scope.registerData.email, scope.registerData.pwd).respond('68a05200c8a69b93994302c0f9ebe44d');
+&nbsp;
+&nbsp;
+            httpBackend.expectGET('http://iscorecards.com/service/CardGame.php?method=saveUser&amp;email='+scope.registerData.email+'&amp;pwd='+scope.registerData.pwd).respond('68a05200c8a69b93994302c0f9ebe44d');
+&nbsp;
+            // scope.register();
+            // console.log(cardsService.getUser());
+            httpBackend.flush();
+&nbsp;
+&nbsp;
+            // expect(scope.loginData.email).toEqual('mdhaem@gmail.com');
+            // expect(scope.loginData.pwd).toEqual('doscar');
+<span class="cstat-no" title="statement not covered" >            expect(cardsService.getUser()).toEqual('68a05200c8a69b93994302c0f9ebe44d');</span>
+        });
+        
+    });
+});
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Dec 11 2016 08:41:39 GMT-0500 (Eastern Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Dec 13 2016 12:53:58 GMT-0500 (Eastern Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

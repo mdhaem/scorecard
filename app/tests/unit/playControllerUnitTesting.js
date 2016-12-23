@@ -7,7 +7,7 @@ describe('Testing ScoreCard', function(){
 
     describe('Testing ScoreCar PlayController', function(){
         
-        var scope, ctrl, location, scp;
+        var scope, ctrl, location;
 
         beforeEach(inject(function($controller, $rootScope, $location){
             scope = $rootScope.$new();
@@ -31,34 +31,34 @@ describe('Testing ScoreCard', function(){
         it('groupNames & cardGames length should be 3', function(){
             scope.groupNames = [
                         {
-                            idGroupName: "1",
-                            groupName: "Bill Bev Mike Sandy"
+                            idGroupName: '1',
+                            groupName: 'Bill Bev Mike Sandy'
                         },
                         {
-                            idGroupName: "1",
-                            groupName: "Bill Bev"
+                            idGroupName: '1',
+                            groupName: 'Bill Bev'
                         },
                         {
-                            idGroupName: "1",
-                            groupName: "Bill Bev Mike Sandy Curt"
+                            idGroupName: '1',
+                            groupName: 'Bill Bev Mike Sandy Curt'
                         }
                     ];  
             expect(scope.groupNames.length).toEqual(3);
             scope.cardGames = [
                         {
-                            idCardGame: "1",
-                            cardGameName: "Shanghi",
-                            cardHand: "7"
+                            idCardGame: '1',
+                            cardGameName: 'Shanghi',
+                            cardHand: '7'
                         },
                         {
-                            idCardGame: "3",
-                            cardGameName: "Hand and Foot",
-                            cardHand: "8"
+                            idCardGame: '3',
+                            cardGameName: 'Hand and Foot',
+                            cardHand: '8'
                         },
                         {
-                            idCardGame: "50",
-                            cardGameName: "Hearts",
-                            cardHand: "8"
+                            idCardGame: '50',
+                            cardGameName: 'Hearts',
+                            cardHand: '8'
                         }
                     ];
             expect(scope.cardGames.length).toEqual(3);
@@ -93,8 +93,8 @@ describe('Testing ScoreCard', function(){
 
         it('should change location to card', function(){
             scope.selectedGroup({
-                            idGroupName: "1",
-                            groupName: "Bill Bev Mike Sandy"
+                            idGroupName: '1',
+                            groupName: 'Bill Bev Mike Sandy'
                         });
             expect(location.path).toHaveBeenCalledWith('/card');
         });

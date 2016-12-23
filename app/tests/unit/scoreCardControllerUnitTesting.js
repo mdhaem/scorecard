@@ -1,11 +1,11 @@
-//'use strict';
+'use strict';
 
 describe('Testing ScoreCardController', function(){
 
     beforeEach(module('Cards'));
 
         describe('Testing ScoreCardController', function(){
-            var rootScope, ctrl;
+            var scope, ctrl;
 
             beforeEach(function(){
                 module(function($provide){
@@ -14,19 +14,19 @@ describe('Testing ScoreCardController', function(){
 
                         getSelectedGroup: function(){
                             return {
-                                        idGroupName: "1",
-                                        groupName: "Bill Bev Mike Sandy"
+                                        idGroupName: '1',
+                                        groupName: 'Bill Bev Mike Sandy'
                                     };
                         },
                         getSelectedCardGame: function(){
                             return {
-                                        idCardGame: "1",
-                                        cardGameName: "Shanghi",
-                                        cardHand: "7"
+                                        idCardGame: '1',
+                                        cardGameName: 'Shanghi',
+                                        cardHand: '7'
                                     };
                         },
                         getUser: function(){
-                            return "68a05200c8a69b93994302c0f9ebe44d";
+                            return '68a05200c8a69b93994302c0f9ebe44d';
                         }
 
                     };

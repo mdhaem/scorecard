@@ -21,7 +21,7 @@ describe('Testing ScoreCard', function(){
              
              expect(scope.save).toBeDefined();
 
-        })
+        });
 
     });
 });
