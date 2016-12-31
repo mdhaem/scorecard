@@ -34,21 +34,47 @@
 		return json_encode($result_array);
 	  }
 	  
-	  public static function saveNewGroupName($groupName){
+	  public static function saveNewGroupName($groupName, $idCardGame, $hash){
           $con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@'); 
         	if (!$con) { 
                 return die('Could not connect: ' . mysql_error()); 
         	}
 		
-  		$sql = "INSERT INTO db544593513.GroupName (groupName) VALUES ( $groupName)";
+  		$sql = "INSERT INTO db544593513.GroupName (groupName, idCardGame, hash) VALUES ( '$groupName', '$idCardGame', '$hash')";
+  		if (mysql_query($sql)) {
+  			$last_id = mysql_insert_id($con); //$con->insert_id;
+  			return $last_id;
+  		} else {
+    		return die('Insert Error: ' . mysql_error());
+		}
+	}
+
+  		// {
+  		//   	return die('Insert Error: ' . mysql_error());
+  		// }
+		
+  		// return 1;
+  	 //  }
+	  
+	public static function deleteGroupName($idGroupName) {
+          $con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@'); 
+        	if (!$con) { 
+                return die('Could not connect: ' . mysql_error()); 
+        	}
+		
+  		$sql = "DELETE FROM db544593513.GroupName WHERE  idGroupName =  $idGroupName LIMIT 1";
   		if (!mysql_query($sql))
   		{
-  		  	return die('Insert Error: ' . mysql_error());
+  		  	return die('Delete Error: ' . mysql_error());
   		}
 		
   		return 1;
   	  }
-	  
+
+
+
+
+
 	  public static function saveNewPlayerGroup($idPlayer, $idCardGame, $playerGroup){
           $con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@'); 
         	if (!$con) { 
@@ -91,7 +117,7 @@
 		  	return die('Insert Error: ' . mysql_error());
 		}
 		
-		return 1;
+		return $hash;
 	  }
 	  
 	  public static function validateUser($email, $pwd)
@@ -101,16 +127,21 @@
     		return die('Could not connect: ' . mysql_error()); 
 		}
 		$hash = md5($email.$pwd);
-		$sql = "SELECT hash FROM db544593513.User WHERE email = '$email' AND hash = '$hash'";
-		$result_array = array();
+		$sql = "SELECT hash FROM db544593513.User WHERE email = '$email' AND hash = '$hash' limit 1";
+// 		$result_array = array();
 		$result = mysql_query($sql,$con);
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    			$row_array['hash'] = $row['hash'];
-
-    			array_push($result_array,$row_array);
-		}
-
-		return json_encode($result_array);  		
+		
+		$value = mysql_fetch_object($result);
+		
+		return $value->hash; 
+		
+		// while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+//     			$row_array['hash'] = $row['hash'];
+// 
+//     			array_push($result_array,$row_array);
+// 		}
+// 
+// 		return json_encode($result_array);		
      }
 // 		public static function saveNewGame($gameName){
 //         $con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@');
@@ -162,33 +193,34 @@
 		return json_encode($result_array);  		
      }
 	  
-     public static function getCardGames()
+     public static function getCardGames($hash)
      {
      	$con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@');  
 		if (!$con) { 
     		return die('Could not connect: ' . mysql_error()); 
 		}
-		$sql = 'SELECT * FROM db544593513.CardGame';
+		$sql = "SELECT * FROM db544593513.CardGame WHERE hash = '$hash'";
 		$result_array = array();
 		$result = mysql_query($sql,$con);
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
     			$row_array['idCardGame'] = $row['idCardGame'];
     			$row_array['cardGameName'] = $row['cardGameName'];
 				$row_array['cardHand'] = $row['cardHand'];
-
+				$row_array['hash'] = $row['hash'];
+				
     			array_push($result_array,$row_array);
 		}
 
 		return json_encode($result_array);  		
      }
 	 
-  public static function saveNewGame($gameName, $hand){
+  public static function saveNewGame($gameName, $hand, $hash){
        $con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@'); 
      	if (!$con) { 
              return die('Could not connect: ' . mysql_error()); 
      	}
 	
-	$sql = "INSERT INTO db544593513.CardGame (cardGameName, cardHand) VALUES ($gameName, $hand)";
+	$sql = "INSERT INTO db544593513.CardGame (cardGameName, cardHand, hash) VALUES ('$gameName', $hand, '$hash')";
 	if (!mysql_query($sql))
 	{
 	  	return die('Insert Error: ' . mysql_error());
@@ -233,19 +265,20 @@
 		return json_encode($result_array);  		
      }
 
-     public static function getGroupNames()
+     public static function getGroupNames($hash)
      {
      	$con = mysql_connect('db544593513.db.1and1.com', 'dbo544593513', 'doscar@'); 
 		if (!$con) { 
     		return die('Could not connect: ' . mysql_error()); 
 		}
-		$sql = 'SELECT * FROM db544593513.GroupName';
+		$sql = "SELECT * FROM db544593513.GroupName WHERE hash = '$hash'";
 		$result_array = array();
 		$result = mysql_query($sql,$con);
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
     			$row_array['idGroupName'] = $row['idGroupName'];
     			$row_array['groupName'] = $row['groupName'];
-
+				$row_array['hash'] = $row['hash'];
+				
     			array_push($result_array,$row_array);
 		}
 
