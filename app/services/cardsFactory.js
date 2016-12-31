@@ -22,10 +22,17 @@ var CardsFactory = function($http){
 	factory.getGroupNames = function(hash) {
 		return  $http.get('http://iscorecards.com/service/CardGame.php?method=getGroupNames&hash='+hash);
 	};
+
+	//GROUPNAME
 	factory.saveNewGroupName = function(groupName, idCardGame, hash){
 		//saveNewGroupName($groupName, $idCardGame, $hash)
 		return $http.get('http://iscorecards.com/service/CardGame.php?method=saveNewGroupName&groupName='+groupName+'&idCardGame='+idCardGame+'&hash='+hash);
 	};
+	factory.deleteGroupName = function(id){
+		//saveNewGroupName($groupName, $idCardGame, $hash)
+		return $http.get('http://iscorecards.com/service/CardGame.php?method=deleteGroupName&idGroupName='+id);
+	};
+
 	factory.getHistory = function() {
 		return history;
 	};

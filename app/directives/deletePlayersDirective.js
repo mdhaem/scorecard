@@ -5,15 +5,18 @@
     var directive = function () {
         return {
         	scope: {
-                selectLabel: '@',
-                defaultSelectOption: '@',
-                instruction: '@'
+                datasource: '=',
+                selectbutton: '@',
+                instruction: '@',
+                selectlabel: '@'
+               
             },
         	templateUrl: 'app/directives/deletePlayersDirective.html',
-        	replace: true,
-        	action: 'delete()'
+        	replace: true
+        	//action: 'delete()'
         };
     };
+
 
     angular.module('Cards')
         .directive('deletePlayersDirective', directive);

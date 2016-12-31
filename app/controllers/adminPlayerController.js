@@ -13,7 +13,22 @@
 		$scope.message = '';
 		$scope.newGroupName = {idGroupName: 0, groupName: '', hash: '', idCardGame: 0};
 		$scope.defaultSelectOption = 'Select group to delete...';
-		$scope.instruction = 'Do something';
+		$scope.instructions = 'Do something';
+		$scope.selectButton = 'Delete Players';
+		$scope.selectLabel = 'Players*';
+		$scope.groupNames = [];
+
+		 $scope.init = function init() {
+
+			var hash = CardsService.getUser();
+
+			//Get card teams associated with user
+	        $scope.groupNames = CardsFactory.getGroupNames(hash).then(function(dataResponse){
+	            $scope.groupNames = dataResponse.data;
+	        });
+	    };
+
+    	$scope.init();
 
 		$scope.display = function() {
         $scope.alertDisplayed = true;

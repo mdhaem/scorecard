@@ -1,12 +1,15 @@
 <div>
-	<label for="select">{{}}</label>
 	<div>
-	    <label for="select">{{selectLabel}}</label>
-		<div ng-disabled="isDisabled">
-			<select id="select" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
-				<option value="{{defaultSelectOption}}"</option>
+	    <label for="select">{{selectlabel}}</label>
+	    {{groups}}
+		<div>
+		<!-- p.proxyType as p.proxyType for p in proxyOptions -->
+			<select id="teamSelect" ng-options="group as group.groupName for group in datasource" ng-model="group" ng-change="">
+				<option value="{{defaultSelectOption}}"></option>
+				</select>
+
 		</div>
     </div>
 	<h4 class="small">{{instruction}}</h4>
-	<button type="submit" class="btn">{{selectButton}}</button>
+	<button type="submit" class="btn">{{selectbutton}}</button>
 </div>

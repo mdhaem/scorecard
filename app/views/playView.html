@@ -21,6 +21,7 @@
 						    </div>
 						    <div ng-hide="selectedGroup.idGroup">
 							    <label for="teamSelect">Select team:</label>
+							    
 								<div ng-disabled="isDisabled">
 									<select id="teamSelect" ng-options="group as group.groupName for group in groupNames" ng-model="group" ng-change="selectedGroup(group)" ng-disabled="isDisabled">
 										<option value="">-- choose a team --</option>
