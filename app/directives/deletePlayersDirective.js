@@ -8,7 +8,10 @@
                 datasource: '=',
                 selectbutton: '@',
                 instruction: '@',
-                selectlabel: '@'
+                selectlabel: '@',
+                action: '&',
+                group: '=',
+                defaultSelectOption: '@'
                
             },
         	templateUrl: 'app/directives/deletePlayersDirective.html',

@@ -17,6 +17,7 @@
 		$scope.selectButton = 'Delete Players';
 		$scope.selectLabel = 'Players*';
 		$scope.groupNames = [];
+		$scope.group = {};
 
 		 $scope.init = function init() {
 
@@ -37,16 +38,21 @@
 	      }, 3000);
       	};
 		
+      	$scope.deleteGroupName = function deleteGroupName(){
+console.log($scope.group.idGroupName);
+      		CardsFactory.deleteGroupName($scope.group.idGroupName);
+      	};
+
 		$scope.save = function save(){
-console.log('saving');
+//console.log('saving');
 			var validPlayersList = $scope.spacesExist($scope.unregCardGame.players.groupName);
-console.log($scope.unregCardGame.players.groupName);
+//console.log($scope.unregCardGame.players.groupName);
 			if(validPlayersList){
 
 				$scope.response = CardsFactory.saveNewGroupName($scope.unregCardGame.players.groupName, $scope.idCardGame, $scope.hash).then(
 					function successCallback(result){
-console.log($scope.response);
-console.log(result);
+//console.log($scope.response);
+//console.log(result);
 						if(result.data.error === undefined) {
 							$scope.newGroupName.idGroupName = $scope.response;
 							$scope.newGroupName.groupName = $scope.unregCardGame.players.groupName;

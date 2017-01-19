@@ -1,15 +1,14 @@
 <div>
 	<div>
 	    <label for="select">{{selectlabel}}</label>
-	    {{groups}}
 		<div>
 		<!-- p.proxyType as p.proxyType for p in proxyOptions -->
 			<select id="teamSelect" ng-options="group as group.groupName for group in datasource" ng-model="group" ng-change="">
-				<option value="{{defaultSelectOption}}"></option>
+				<option value="">-- Select an option--</option>
 				</select>
-
 		</div>
+		{{defaultSelectOption}}
     </div>
 	<h4 class="small">{{instruction}}</h4>
-	<button type="submit" class="btn">{{selectbutton}}</button>
+	<button type="button" class="btn" ng-click="action()">{{selectbutton}}</button>
 </div>
